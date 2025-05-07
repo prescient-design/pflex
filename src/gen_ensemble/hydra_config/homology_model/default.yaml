@@ -1,0 +1,16 @@
+path_to_bin: ../../../../mhc-pep-threader
+nstruct: 1
+mhcs: mhc_list
+peptides: pep_list
+pep_start_index: 181 
+interface_cutpoint: 180
+relax_after_threading: true
+
+template_file: null
+template_pdb: null
+mhc_chain: null
+peptide_chain: null
+outdir: null
+allele: null
+peptide: null
+clustal_path: ../../../../mhc-pep-threader/clustalo

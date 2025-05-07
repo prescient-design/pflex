@@ -1,0 +1,10 @@
+nstruct: 1
+mhcs: mhc_list
+peptides: pep_list
+mhc_chain: A
+peptide_chain: P
+pep_start_index: 181 
+interface_cutpoint: 180
+relax_after_threading: True
+
+template_pdb: ???

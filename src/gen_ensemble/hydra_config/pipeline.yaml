@@ -1,0 +1,5 @@
+defaults:
+  - _self_
+  - flexpepdock: default.yaml
+  - homology_model: default.yaml
+  - orchestrator: default.yaml

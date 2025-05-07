@@ -1,0 +1,6 @@
+biopython
+pandas
+pyarrow
+scipy
+numba
+scikit-learn

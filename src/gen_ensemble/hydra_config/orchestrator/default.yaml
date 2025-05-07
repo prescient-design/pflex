@@ -1,0 +1,47 @@
+
+initialize:
+  distance_ctype: "FLAT_HARMONIC"
+  dihedral_ctype: "CIRCULAR_HARMONIC"
+  cst_based_template: false
+
+benchmarks:
+  run_benchmark: true
+  dist_thresh: 5.0
+  ca_dist_thresh: 10.0
+  sparsity: 0.0
+  bias: 0.0
+  tol: 0.0
+  no_cst: false
+
+run:
+  unk: true
+  pred_cst: true
+
+  # short peptides test
+  unk_sequences: ../../../../example/short/unk.csv
+  testset: ../../../../example/short/test.txt
+  inferred_csts: ../../../../example/short/test.npy
+
+  # long peptides test
+  #unk_sequences: ../../../../example/long/unk.csv
+  #testset: ../../../../example/long/test.txt
+  #inferred_csts: ../../../../example/long/test.npy
+
+output:
+  outdir: null
+
+fasta: ../../../../database/lib/PDBS.fasta
+dir: ../../../../database/lib/TRIMMED_TEMPLATES
+multi_template_dir: ../../../../database/lib/multi_templates
+
+md:
+  compare_with_native: false
+  dir: ../../../../md_analyses/md_pdb_ensembles
+  rms_to_native: ../../../../md_analyses
+
+cluster:
+  method: agglomerative # dbscan or agglomerative
+  k_start: 2
+  k_end: 6
+  k_step: 0.5
+

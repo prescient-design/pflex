@@ -1,0 +1,11 @@
+
+receptor_chain: A
+peptide_chain: B
+pep_refine: true
+nstruct: 3
+suffix: _dock_refined
+cst_fa_weight: 0.1
+cst_weight: 0.1
+
+input_model: null
+
