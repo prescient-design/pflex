@@ -1,0 +1,25 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      +model.interface_pred: true
+      +model.freeze_embeddings: true
+      +model.use_gp: false
+      +model.dist_only: false
+      # This may be different from the training dataset
+      data: sequence
+      +wandb.dir: /scratch/site/u/parj2/pmhc_constraints_all
+      +wandb.project: philia-regressor-v3
+      +checkpoint_path: "/home/parj2/stage/tcr_design/philia_logs/checkpoint.ckpt"
+      optim.batch_size: 10
+      optim.val_batch_size: 5
+      model.lr: 5.e-3
+      model.wd: 1.e-5
+      model.lr_patience: 10
+      # Inference
+      infer.index_type: 'row'
+      infer.test_indices: '/home/parj2/stage/tcr_design/train_test_splits/binder_row_idx.txt'
+      infer.device_name: 'gpu'
+      infer.checkpoint_path: '/scratch/site/u/parj2/pmhc_constraints_all/last-v6.ckpt'
+      infer.batch_size: 1000
+      infer.out_path: '/scratch/site/u/parj2/pmhc_constraints_all/test_results_all.npy'

@@ -1,0 +1,40 @@
+defaults:
+  - _self_
+  - wandb: prescient
+  - model: joint_interface_model
+  - data: sequence
+
+seed: 12345
+checkpoint_path: null
+best_model_path: null
+val_split: 'val.txt'
+val_pdb_only: false
+
+infer:
+  index_type: 'pdbid'
+  test_indices: null
+  device_name: 'cpu'
+  checkpoint_path: null # '/home/parj2/stage/tcr_design/philia_logs/epoch=2-step=21371.ckpt'
+  batch_size: 512
+  test_path: null
+  out_path: null # '/home/parj2/stage/tcr_design/test_out_results.parquet'
+
+optim:
+  batch_size: 64
+  val_batch_size: 54
+
+trainer:
+  accelerator: gpu
+  # limit_val_batches: 1.0
+  max_epochs: 300
+  accumulate_grad_batches: 10
+  # gradient_clip_val: 0.01
+  detect_anomaly: false
+  # val_check_interval: 1.0
+  # log_every_n_steps: 20
+  check_val_every_n_epoch: 1
+  limit_val_batches: 1.0
+
+tags: ~
+command: ~
+shard_num: ~

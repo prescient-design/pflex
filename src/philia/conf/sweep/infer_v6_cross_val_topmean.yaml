@@ -1,0 +1,29 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      model: joint_interface_model
+      data: structure
+      data.version: 6
+      data.scale_option: log
+      model.scale_option: log
+      # This may be different from the training dataset
+      # val_split: '4-set1.txt'
+      optim.batch_size: 8
+      model.lr: 0.001
+      model.d_mlp: 32
+      model.weight_dihedral_loss: 0.08
+      model.weight_aug: 0.2
+      model.weight_length: 1.0 #0.6
+      model.wd: 1.e-5
+      model.lr_patience: 20
+      optim.val_batch_size: 40
+      model.num_components: 3
+      trainer.accumulate_grad_batches: 2
+
+      # Inference
+      infer.device_name: 'cpu'
+      infer.checkpoint_path: '/home/luc42/pmhc_interface/multirun/v6_cross_val_rescale_log_val_pdb_2024-08-15_topmean/checkpoint_set4.ckpt'
+      #'/home/luc42/scratch/pmhc_interface/joint_v2/rescale_log_addrelax_2024-06/val_split-2-set2/bs-8-lr-0.001-dmlp-32-w_dihderal-0.02-w_aug-1-w_length-1-scale-log/checkpoint.ckpt'
+      infer.batch_size: 1000
+      infer.out_path: '/scratch/site/u/luc42/pmhc_interface/joint_v6_test_results_2024-08-15_topmean/topmean_set4.npy' #weight_length_1_set2.npy' #topmean_set4.npy'

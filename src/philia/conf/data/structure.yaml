@@ -1,0 +1,3 @@
+_target_: philia.trainval_data.structure_dataset.StructureDataset
+version: 3
+scale_option: scalar

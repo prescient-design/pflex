@@ -1,0 +1,6 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      maps: ['s3://prescient-data-dev/sandbox/nerlis/pmhc/af_ft_augmented_data/ft_wts/relaxed_ft_wts/', 's3://prescient-data-dev/sandbox/nerlis/pmhc/af_ft_augmented_data/augmented_set_v2/'] 
+      extra_seq_import: false

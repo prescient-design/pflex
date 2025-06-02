@@ -1,0 +1,16 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      +model.interface_pred: false
+      +model.freeze_embeddings: true
+      # This may be different from the training dataset
+      data: sequence
+      +wandb.dir: /scratch/site/u/parj2/pmhc_pretrain
+      +wandb.project: philia-classifier-v3-infer
+      +checkpoint_path: "/scratch/site/u/parj2/pmhc_pretrain/philia_logs_pretrain/last.ckpt"
+      # Inference
+      infer.device_name: 'cuda'
+      infer.checkpoint_path: "/scratch/site/u/parj2/pmhc_pretrain/philia_logs_pretrain/last.ckpt"
+      infer.batch_size: 1000
+      infer.out_path: '/scratch/site/u/parj2/pmhc_pretrain/test_binding_prob.npy'

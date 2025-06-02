@@ -1,0 +1,5 @@
+maps: ['s3://prescient-data-dev/sandbox/nerlis/scratch/pmhc_db_splits_feb7/distance_dihedral_maps/distance_dihedral_maps_noisy/', 's3://prescient-data-dev/sandbox/nerlis/scratch/pmhc_db_splits_feb7/distance_dihedral_maps/distance_dihedral_maps_augmented_set2/']
+hla_set: null
+pep_set: null
+dump_path: '/home/luc42/scratch/debug.parquet' #'s3://prescient-data-dev/sandbox/luc42/tcr_pmhc/formatted_train_set_v4.parquet'
+extra_seq_import: false

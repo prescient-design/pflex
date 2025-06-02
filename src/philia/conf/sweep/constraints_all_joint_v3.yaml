@@ -1,0 +1,32 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      model: joint_interface_model
+      +model.interface_pred: true
+      +model.freeze_embeddings: true
+      data: structure
+      data.version: 3
+      # wandb.dir: /scratch/site/u/parj2/pmhc_interface/joint_v3_sweep_local
+      +wandb.project: philia-v3-dist-improve
+      +checkpoint_path: /scratch/site/u/parj2/pmhc_pretrain/philia_logs_pretrain_v2/last.ckpt  # /scratch/site/u/parj2/pmhc_pretrain/philia_logs_pretrain/last.ckpt
+      optim.batch_size: 8
+      optim.val_batch_size: 40
+      model.lr: 1.e-3
+      model.wd: 1.e-5
+      model.lr_patience: 20
+      +trainer.check_val_every_n_epoch: 1
+      +trainer.limit_val_batches: 1.0
+      model.weight_aug: 0.5
+      model.weight_dihedral_loss: 0.08
+      model.num_components: 3
+      trainer.accumulate_grad_batches: 2
+
+      # trainer.val_check_interval: 1.0
+      # trainer.log_every_n_steps: 10
+      # Inference
+      infer.index_type: 'pdbid'
+      infer.device_name: 'cpu'
+      infer.checkpoint_path: /home/parj2/stage/pmhc_interface/multirun/2024-01-22/00-10-43/0/checkpoint.ckpt  # /home/parj2/stage/pmhc_interface/multirun/2023-10-14/11-37-20/2/checkpoint-v1.ckpt  # '/home/parj2/stage/pmhc_interface/multirun/2023-10-13/11-56-12/4/checkpoint-v1.ckpt'
+      infer.batch_size: 100
+      infer.out_path: '/scratch/site/u/parj2/pmhc_interface/joint_v3_sweep_aug/test_results_v3.npy'

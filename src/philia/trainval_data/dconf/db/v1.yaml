@@ -1,0 +1,10 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      maps: ['s3://prescient-data-dev/sandbox/nerlis/scratch/pmhc_db_splits_feb7/distance_dihedral_maps/distance_dihedral_maps_clean/']
+      #'s3://prescient-raw-20220315/pmhc/data_sets/distance_dihedral_maps_pdb/'
+      # hla_set: '/gstore/project/prescient/data/tcr/pmhc/pdb/sequences/transphla_ip/hlas.fasta'
+      # pep_set: '/gstore/project/prescient/data/tcr/pmhc/pdb/sequences/transphla_ip/peptides.fasta'
+      dump_path: 's3://prescient-data-dev/sandbox/luc42/tcr_pmhc/reformatted_train_set_v1_log_dist.parquet'
+      extra_seq_import: false #true

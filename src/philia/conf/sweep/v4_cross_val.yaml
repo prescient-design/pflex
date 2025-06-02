@@ -1,0 +1,65 @@
+program: philia/train.py
+method: grid
+entity: prescient
+parameters:
+  model:
+    value: joint_interface_model
+  data:
+    value: structure
+  data.version:
+    value: 4
+  data.scale_option:
+    value: log
+  model.scale_option:
+    value: log
+  wandb.project:
+    value: philia-v4-addrelax
+  val_split:
+    values: ['4-set0.txt', '4-set1.txt', '4-set2.txt', '4-set3.txt', '4-set4.txt']
+    #['augmented_set2/set0.txt', 'augmented_set2/set1.txt', 'augmented_set2/set2.txt', 'augmented_set2/set3.txt', 'augmented_set2/set4.txt']
+    #value: 'augmented_set2/set0.txt'
+  checkpoint_path:
+    value: '/scratch/site/u/luc42/pmhc_pretrain/pretrained_HLA2hla.ckpt'
+  best_model_path:
+    value: '/scratch/site/u/luc42/pmhc_interface/joint_v4/rescale_log_addrelax_2024-05'
+  optim.batch_size:
+    values: [8, 16] #8
+#    value: 4
+  optim.val_batch_size:
+    value: 40
+  model.lr:
+    values: [0.001, 1.e-4]
+#    value: 0.001
+  model.wd:
+    value: 1.e-5
+  model.lr_patience:
+    value: 20
+  model.d_mlp:
+    values: [16, 32]
+#    value: 16
+  model.weight_dihedral_loss:
+    values: [0.02, 0.08]
+#    value: 0.02
+  model.weight_aug:
+    values: [0.1, 0.2, 1.0]
+#    value: 0.1
+  model.weight_length:
+    values: [0.2, 0.6, 1.0]
+  model.num_components:
+    value: 3
+  trainer.accumulate_grad_batches:
+    value: 2
+  infer.index_type:
+    value: 'pdbid'
+  infer.device_name:
+    value: 'cpu'
+  infer.checkpoint_path:
+    value: '/home/luc42/pmhc_interface/multirun/v4_cross_val_2024-05-26/checkpoint_set0.ckpt'
+  infer.batch_size:
+    value: 100
+  infer.out_path:
+    value: '/scratch/site/u/luc42/pmhc_interface/joint_v4/test_results_set0.npy'
+command:
+  - python
+  - ${program}
+  - ${args_no_hyphens}

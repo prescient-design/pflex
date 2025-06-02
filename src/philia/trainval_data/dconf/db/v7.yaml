@@ -1,0 +1,8 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      maps: ['s3://prescient-data-dev/sandbox/nerlis/scratch/pmhc/seq_splits_final/noisy_features']
+      #'s3://prescient-data-dev/sandbox/nerlis/scratch/pmhc_db_splits_feb7/distance_dihedral_maps/distance_dihedral_maps_augmented_set2/'] # clean pdb: s3://prescient-raw-20220315/pmhc/data_sets/distance_dihedral_maps_clean_ca_cb/
+      dump_path: 's3://prescient-data-dev/sandbox/luc42/tcr_pmhc/reformatted_train_set_v7_log_dist.parquet' #'s3://prescient-data-dev/sandbox/luc42/tcr_pmhc/formatted_train_set_v4.parquet'
+      extra_seq_import: false

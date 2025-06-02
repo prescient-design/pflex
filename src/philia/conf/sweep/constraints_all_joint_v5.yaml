@@ -1,0 +1,28 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      model: joint_interface_model
+      +model.interface_pred: true
+      +model.freeze_embeddings: true
+      data: structure
+      data.version: 5
+      +wandb.dir: /scratch/site/u/parj2/pmhc_interface/joint_v5
+      +wandb.project: philia-regressor
+      +checkpoint_path: /scratch/site/u/parj2/pmhc_pretrain/philia_logs_pretrain_v2/last.ckpt  # /scratch/site/u/parj2/pmhc_pretrain/philia_logs_pretrain/last.ckpt
+      optim.batch_size: 8  #, 4
+      optim.val_batch_size: 40
+      model.lr: 1.e-3
+      model.wd: 1.e-5  #, 1.e-4
+      model.lr_patience: 5
+      +trainer.check_val_every_n_epoch: 1
+      +trainer.limit_val_batches: 1.0
+
+      # trainer.val_check_interval: 1.0
+      # trainer.log_every_n_steps: 10
+      # Inference
+      infer.index_type: 'pdbid'
+      infer.device_name: 'cpu'
+      infer.checkpoint_path: '/scratch/site/u/parj2/pmhc_interface/joint_v5/checkpoint.ckpt'
+      infer.batch_size: 100
+      infer.out_path: '/scratch/site/u/parj2/pmhc_interface/joint_v5/test_results_all.npy'

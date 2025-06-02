@@ -1,0 +1,33 @@
+# @package _global_
+hydra:
+  sweeper:
+    params:
+      model: joint_interface_model
+      +model.interface_pred: true
+      +model.freeze_embeddings: true
+      data: structure
+      data.version: 4
+      # +wandb.dir: /scratch/site/u/parj2/pmhc_interface/joint_v4
+      +wandb.project: philia-v4-crossval
+      +model.val_split: augmented_set2/set0.txt, augmented_set2/set1.txt, augmented_set2/set2.txt, augmented_set2/set3.txt, augmented_set2/set4.txt
+      checkpoint_path: /scratch/site/u/luc42/pmhc_pretrain/pretrained.ckpt
+      optim.batch_size: 8, 4
+      optim.val_batch_size: 40
+      model.lr: 1.e-3, 1.e-4
+      model.wd: 1.e-5  #, 1.e-4
+      model.lr_patience: 20
+      +trainer.check_val_every_n_epoch: 1
+      +trainer.limit_val_batches: 1.0
+      model.weight_aug: 0.3, 0.1, 1
+      model.weight_dihedral_loss: 0.08, 0.02
+      model.num_components: 3
+      trainer.accumulate_grad_batches: 2
+
+      # trainer.val_check_interval: 1.0
+      # trainer.log_every_n_steps: 10
+      # Inference
+      infer.index_type: 'pdbid'
+      infer.device_name: 'cpu'
+      infer.checkpoint_path: '/home/luc42/pmhc_interface/multirun/jwp/checkpoint.ckpt'
+      infer.batch_size: 100
+      infer.out_path: '/scratch/site/u/luc42/pmhc_interface/joint_v4/test_results_all.npy'
